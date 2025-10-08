@@ -5,19 +5,20 @@
 
 {% block body %}
 <div class="content">
-    <h1>Convert String to Uppercase</h1>
-    <div class="inputs">
+    <h1>CONVERT STRING TO UPPERCASE</h1>
+
+    <div class="io-box">
         <form action="/uppercase" method="post">
             <label for="inputString">Enter a string:</label>
             <input type="text" id="inputString" name="inputString">
             <input type="submit" value="Convert">
         </form>
-    </div>
 
-    <div class="results">
-        {% if result %}
-        <p>Converted string: {{ result }}</p>
-        {% endif %}
+        <div class="results">
+            {% if result %}
+            <p>Converted string: {{ result }}</p>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}

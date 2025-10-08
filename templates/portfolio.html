@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>MY PROGRAMMING WORKS</h1>
+    <div class="work-card">
+        <h3>toUpperCase</h3>
+        <p>Convert strings to uppercase using a simple form.</p>
+        <a href="{{ url_for('uppercase') }}" class="try-link">Try it</a>
+    </div>
+    <div class="work-card">
+        <h3>Area of Circle</h3>
+        <p>Calculate the area of a circle given the radius.</p>
+        <a href="{{ url_for('areaofcircle') }}" class="try-link">Try it</a>
+    </div>
+    <div class="work-card">
+        <h3>Area of Triangle</h3>
+        <p>Calculate the area of a tringle given the base and height.</p>
+        <a href="{{ url_for('areaoftriangle') }}" class="try-link">Try it</a>
+    </div>
+</div>
+{% endblock %}

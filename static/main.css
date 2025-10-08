@@ -1,13 +1,31 @@
+/*main*/
 html, body {
     margin: 0;
     padding: 0;
     background: #000000;
-    padding-top: 80px;
-    height: 200vh; /* just to see the bar over scrolling */
+    padding-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.main, .content {
+    color: #fff;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
+.content h1, .content p {
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .navbar {
     background: transparent;
+    height: 80px;
+    align-items: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,13 +38,6 @@ html, body {
     z-index: 1000;
 }
 
-.logo {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -37,7 +48,7 @@ html, body {
 
 .nav-links a {
     text-decoration: none;
-    color: #aaa;               /* greyish by default */
+    color: #aaa;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 1px;
@@ -47,5 +58,167 @@ html, body {
 .nav-links a:hover,
 .nav-links a:focus,
 .nav-links a.active {
-    color: #fff;              /* turns white when hovered or active */
+    color: #fff;
+}
+
+/*index*/
+.spaced {
+    letter-spacing: 35px;
+    display: inline-block;
+    margin-top: 120px;
+}
+
+.spaced2 {
+    letter-spacing: 30px;
+    color: #aaa;
+}
+
+/*profile*/
+.profile {
+    color: #fff;
+    font-size: 45px;
+    margin-left: 40px;
+}
+
+.profile h2 {
+    font-size: 40px;
+}
+
+.profile blockquote {
+    font-size: 20px;
+    text-align: right;
+}
+
+/*portfolio*/
+.work-card {
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    margin-left: 40px;
+    margin-top: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    width: 180px;
+    height: 160px;         
+    vertical-align: top;
+    text-align: center;
+    transition: transform 0.2s;
+    min-height: 50px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #1c1c1c #111;
+    border: 2px solid #fff;
+}
+
+.work-card h3, .work-card p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.work-card:hover {
+    transform: scale(1.05);
+}
+
+.work-card .try-link {
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.work-card:hover .try-link {
+    opacity: 1;
+}
+
+.work-card a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.work-card a:hover {
+    color: #ccc;
+}
+
+.works {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/*works*/
+.io-box {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 20px;
+    background: #111;
+    margin: 60px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.io-box input[type="text"], .io-box input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0px 10px 0px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #222;
+    color: #fff;
+}
+
+.io-box input[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/*contacts*/
+.contact {
+    text-align: center;
+    margin-top: 120px;
+    font-size: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;  /* centers icons horizontally */
+    gap: 20px;                /* spacing between icons */
+    margin-top: 120px;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;   /* stack icon and text */
+    align-items: center;
+    text-align: center;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s;
+    margin-bottom: 5px; 
+}
+
+.social-links a:hover {
+    color: #ccc;
+}
+
+.social-links a i {
+    font-size: 60px;   /* set desired icon size */
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.social-links a i:hover {
+    color: #ccc;
+}
+
+.social-text {
+    font-size: 12px;
 }

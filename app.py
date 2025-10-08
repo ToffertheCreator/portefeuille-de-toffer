@@ -11,6 +11,10 @@ def index():
 def profile():
     return render_template('profile.html')
 
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html')
+
 @app.route('/uppercase', methods=['GET', 'POST'])
 def uppercase():
     result = None
@@ -23,8 +27,13 @@ def uppercase():
 def areaofcircle():
     result=None
     if request.method == 'POST':
-        inp = float(request.form.get('inputnum', 0))
-        result = math.pi*(inp**2)
+        inp_rad = request.form.get('inputnum', '')
+
+        if inp_rad:
+            rad = float(inp_rad)
+            result = math.pi*(rad**2)
+        else:
+            result = "Missing Input"
     return render_template('areaofcircle.html', result=result)
 
 @app.route('/areaoftriangle', methods=['GET', 'POST'])
@@ -45,7 +54,7 @@ def areaoftriangle():
 
 @app.route('/contact')
 def contact():
-    return "Contact Page. please create me an html page with dummy contact info"
+    return render_template('contacts.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
