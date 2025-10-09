@@ -25,7 +25,8 @@ html, body {
     padding-top: 10px;
 }
 .landing-bg .content h1 {
-    padding-top: 120px;
+    padding-top: 0px;
+    margin-top: -130px;
 }
 
 .landing-bg .profile h1 {
@@ -39,6 +40,31 @@ html, body {
 
 .main, .content {
     color: #ffffff;
+}
+
+.top-image, .bottom-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bottom-image img {
+    max-width: 250px;
+    height: auto;
+}
+
+.top-image img {
+    max-width: 450px;
+    height: auto;
+}
+
+.top-image {
+    margin-top: 140px;  /* controls distance from top */
+    margin-bottom: 0px; /* reduces space before h1 */
+}
+.bottom-image {
+    margin-top: 30px;
 }
 
 .logo img {
@@ -100,7 +126,7 @@ html, body {
 
 .spaced2 {
     letter-spacing: 30px;
-    color: #aaa;
+    color: #cac8c8;
 }
 
 /*profile*/
