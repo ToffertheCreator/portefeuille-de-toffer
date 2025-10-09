@@ -271,15 +271,24 @@ html, body {
 /*contacts*/
 .contact {
     text-align: center;
-    margin-top: 120px;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.contact p {
+    margin-top: 0px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;  /* centers icons horizontally */
     gap: 20px;                /* spacing between icons */
-    margin-top: 120px;
+    margin-top: 40px;
 }
 
 .social-item {
