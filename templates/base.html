@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     
 </head>
 <body>
@@ -25,5 +27,74 @@
     <div class="main">
         {% block body %}{% endblock %}
     </div>
+
+<svg width="0" height="0">
+  <filter id="wavy-ripple">
+    <feTurbulence id="turb" baseFrequency="0.02 0.03" numOctaves="2" seed="1" />
+    <feDisplacementMap in2="SourceGraphic" in="SourceGraphic" scale="25" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+<script>
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.navbar')) return;
+
+    const ripple = document.createElement('span');
+    ripple.className = 'screen-ripple';
+    const size = 120;
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - size / 2) + 'px';
+    ripple.style.top = (e.clientY - size / 2) + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+});
+</script>
+
+<script>
+document.querySelectorAll('.try-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = this.closest('.work-card');
+        const rect = card.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Add zoom effect to the clicked card
+        card.style.transform = 'scale(2)';
+        card.style.transition = 'transform 0.6s cubic-bezier(.4,2,.3,.9)';
+        
+        // Blur and scale out the main content
+        document.querySelector('.main').classList.add('zoom-transition');
+        
+        const overlay = document.getElementById('zoom-overlay');
+        overlay.style.transformOrigin = `${centerX}px ${centerY}px`;
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'scale(3)';
+        
+        setTimeout(() => {
+            window.location = this.href;
+        }, 600);
+    });
+});
+
+// Reset animation when page loads or when navigating back
+function resetAnimations() {
+    const overlay = document.getElementById('zoom-overlay');
+    if (overlay) {
+        overlay.style.opacity = '0';
+        overlay.style.transform = 'scale(0.1)';
+    }
+    document.querySelector('.main').classList.remove('zoom-transition');
+    
+    // Reset all work cards
+    document.querySelectorAll('.work-card').forEach(card => {
+        card.style.transform = '';
+        card.style.transition = '';
+    });
+}
+
+window.addEventListener('pageshow', resetAnimations);
+window.addEventListener('popstate', resetAnimations);
+</script>
+<div id="zoom-overlay"></div>
 </body>
 </html>

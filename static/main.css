@@ -2,13 +2,43 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: #000000;
-    padding-top: 40px;
+    background-color: #000;
     font-family: 'Times New Roman', Times, serif;
+    padding-top: 40px;
+    cursor: crosshair;
+}
+
+.landing-bg {
+    background-image: url("/static/dotted_ripple.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0px;
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.landing-bg .content p {
+    padding-top: 10px;
+}
+.landing-bg .content h1 {
+    padding-top: 120px;
+}
+
+.landing-bg .profile h1 {
+    padding-top: 40px;
+}
+
+.landing-bg .work {
+    text-align: center;
+    padding-top: 100px;
 }
 
 .main, .content {
-    color: #fff;
+    color: #ffffff;
 }
 
 .logo img {
@@ -108,6 +138,8 @@ html, body {
     scrollbar-width: thin;
     scrollbar-color: #1c1c1c #111;
     border: 2px solid #fff;
+    transform-origin: center center;  /* Add this */
+    position: relative;
 }
 
 .work-card h3, .work-card p {
@@ -140,18 +172,12 @@ html, body {
     color: #ccc;
 }
 
-.works {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
 /*works*/
 .io-box {
     border: 2px solid #fff;
     border-radius: 8px;
     padding: 20px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.7);
     margin: 60px;
     margin-left: 90px;
     margin-right: 90px;
@@ -176,6 +202,45 @@ html, body {
     cursor: pointer;
 }
 
+.landing {
+    background-color: #000000;
+    min-height: 100vh;
+    background-image: url("/static/dotted_ripple.gif");
+    background-repeat: no-repeat;
+    background-size: 2990px 2990px;
+    background-position: center 0px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.landing .content {
+    padding-top: 120px;
+}
+
+#zoom-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #000000;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.1);
+    transition: opacity 0.5s, transform 0.7s cubic-bezier(.4,2,.3,.9);
+}
+
+.main {
+    transition: transform 0.5s, filter 0.5s;
+}
+
+.zoom-transition {
+    transform: scale(1.1);
+    filter: blur(8px);
+    pointer-events: none;  /* Add this */
+}
 
 /*contacts*/
 .contact {
@@ -221,4 +286,24 @@ html, body {
 
 .social-text {
     font-size: 12px;
+}
+
+/* ripple */
+.screen-ripple {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: screen-ripple-distort 0.7s linear;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    filter: url(#wavy-ripple);
+    z-index: 9999;
+}
+
+@keyframes screen-ripple-distort {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
