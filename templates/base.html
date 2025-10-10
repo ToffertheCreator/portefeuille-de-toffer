@@ -16,6 +16,7 @@
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="logo">
             </a>
         </div>
+        <div class="burger" id="burger">☰</div>
         <ul class="nav-links">
             <li><a href="{{ url_for('index') }}">HOME</a></li>
             <li><a href="{{ url_for('profile') }}">ABOUT</a></li>
@@ -28,6 +29,7 @@
         {% block body %}{% endblock %}
     </div>
 
+<!-- ripple -->
 <svg width="0" height="0">
   <filter id="wavy-ripple">
     <feTurbulence id="turb" baseFrequency="0.02 0.03" numOctaves="2" seed="1" />
@@ -49,6 +51,7 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
+<!-- transition -->
 <script>
 document.querySelectorAll('.try-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -96,5 +99,16 @@ window.addEventListener('pageshow', resetAnimations);
 window.addEventListener('popstate', resetAnimations);
 </script>
 <div id="zoom-overlay"></div>
+
+<!-- burger -->
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('burger');
+  const nav = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+});
+</script>
 </body>
 </html>
