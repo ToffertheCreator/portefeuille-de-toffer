@@ -13,12 +13,60 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 0px;
+    background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
     width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+.landing-bg > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* overlay bg */
+.landing-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);  /* Black overlay at 50% opacity */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.landing-bg .content {
+    position: relative;
+    z-index: 2;  /* Content above overlay */
+}
+
+/* overlay work pages */
+.landing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Make sure content appears above the overlay */
+.landing .content {
+    position: relative;
+    z-index: 2;
+}
+
+.landing .io-box {
+    position: relative;
+    z-index: 2;
 }
 
 .landing-bg .content p {
@@ -50,21 +98,22 @@ html, body {
 }
 
 .bottom-image img {
-    max-width: 250px;
+     max-width: min(200px, 50vw);
     height: auto;
 }
 
 .top-image img {
-    max-width: 450px;
+    max-width: min(340px, 70vw);  /* Never exceeds 340px OR 70% of viewport */
     height: auto;
 }
 
 .top-image {
-    margin-top: 140px;  /* controls distance from top */
+    margin-top: 190px;  /* controls distance from top */
     margin-bottom: 0px; /* reduces space before h1 */
 }
 .bottom-image {
     margin-top: 30px;
+    opacity: 0.85;
 }
 
 .logo img {
@@ -92,6 +141,7 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     z-index: 1000;
+    border-bottom: 2px solid #fff;
 }
 
 .nav-links {
@@ -111,6 +161,26 @@ html, body {
     transition: color 0.2s ease;
 }
 
+.nav-links li {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li:not(:last-child) {
+    border-right: 2px solid #fff;
+    padding-right: 30px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li:first-child {
+    border-left: 2px solid #fff;
+    padding-left: 30px;
+}
+
 .nav-links a:hover,
 .nav-links a:focus,
 .nav-links a.active {
@@ -119,14 +189,15 @@ html, body {
 
 /*index*/
 .spaced {
-    letter-spacing: 35px;
-    display: inline-block;
-    margin-top: 120px;
-}
-
-.spaced2 {
-    letter-spacing: 30px;
-    color: #cac8c8;
+    letter-spacing: 24px;
+    display: block;
+    margin-top: 125px;
+    text-align: center;
+    white-space: normal;  /* Allow text to wrap */
+    word-wrap: break-word;  /* Break long words */
+    overflow-wrap: break-word;  /* Modern alternative */
+    line-height: 1.5;  /* Space between wrapped lines */
+    max-width: 100%;  /* Don't exceed screen width */
 }
 
 /*profile*/
@@ -147,7 +218,7 @@ html, body {
 
 /*portfolio*/
 .work-card {
-    background: #111;
+    background: #151515;
     color: #fff;
     padding: 20px;
     margin-left: 40px;
@@ -163,7 +234,7 @@ html, body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #1c1c1c #111;
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     transform-origin: center center;  /* Add this */
     position: relative;
 }
@@ -199,6 +270,11 @@ html, body {
 }
 
 /*works*/
+.work h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
 .io-box {
     border: 2px solid #fff;
     border-radius: 8px;
@@ -214,7 +290,7 @@ html, body {
     padding: 8px;
     margin: 5px 0px 10px 0px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: none;
     background: #222;
     color: #fff;
 }
@@ -369,7 +445,6 @@ html, body {
         flex-direction: row;
         padding: 10px 40px;
         height: auto;
-        background: rgba(0, 0, 0, 0.7);
     }
 
     .nav-links {
@@ -386,6 +461,21 @@ html, body {
         z-index: 999;  /* Below navbar but above content */
     }
 
+    .nav-links li:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+        height: auto;
+    }
+    
+    .nav-links li:first-child {
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .nav-links li {
+        height: auto;
+    }
+
     .burger {
         display: block;
     }
@@ -399,9 +489,8 @@ html, body {
     }
 
     .logo img {
-        height: 7vh;
-        width: 22vw;
-        margin-bottom: 5px;
+        height: 8.5vh;
+        width: auto;
     }
 
     .nav-links a {
@@ -417,21 +506,21 @@ html, body {
 
     /* Top image adjustments */
     .top-image {
-        margin-top: 170px;  /* Less space from top on mobile */
+        margin-top: 250px;  /* Less space from top on mobile */
         margin-bottom: 60px;
     }
 
     .top-image img {
-        max-width: 70%;  /* Smaller on mobile */
+        max-width: min(250px, 70vw);
     }
 
     /* Bottom image adjustments */
     .bottom-image {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .bottom-image img {
-        max-width: 50%;  /* Smaller on mobile */
+        max-width: min(150px, 50vw);
     }
 
     /* Landing background */
@@ -448,13 +537,16 @@ html, body {
     }
 
     .spaced {
-        letter-spacing: 15px;
-        margin-top: 60px;
-    }
-
-    .spaced2 {
-        letter-spacing: 12px;  /* Reduce letter spacing */
-        font-size: 0.9rem;
+        letter-spacing: 8px;
+        margin-top: 120px;
+        font-size: 1.7rem;
+        padding: 0 10px;
+        white-space: normal;  /* Allow text to wrap */
+        word-wrap: break-word;  /* Break long words */
+        overflow-wrap: break-word;  /* Modern alternative */
+        line-height: 1.5;  /* Space between wrapped lines */
+        max-width: 100%;  /* Don't exceed screen width */
+        display: block;  /* Instead of inline-block */
     }
 
     /* Profile section */
@@ -466,11 +558,11 @@ html, body {
 
     .profile h1 {
         padding-top: 20px;
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .landing-bg .profile h1 {
-        padding-top: 80px;
+        padding-top: 115px;
     }
 
     .profile h2 {
@@ -487,6 +579,10 @@ html, body {
     }
 
     /* Work cards */
+    .work h1 {
+        font-size: 2rem;
+    }
+
     .work-card {
         width: 80%;
         max-width: 100%;
@@ -508,21 +604,21 @@ html, body {
     padding: 8px;
     margin: 5px 0px 10px 0px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: none;
     background: #222;
     color: #fff;
 }
 
     /* Contact section */
     .contact {
-        font-size: 16px;
+        font-size: 1rem;
         padding: 20px;
         min-height: auto;  /* Remove fixed height */
-        margin-top: 230px;
+        margin-top: 300px;
     }
 
     .contact h1 {
-        font-size: 1.5rem;
+        font-size: 3rem;
         margin-bottom: 10px;
     }
 
