@@ -531,12 +531,6 @@ html, body {
         background-position: center top;
         min-height: 100%;
         height: auto;
-        position: relative;
-    }
-
-    .main {
-        min-height: 100vh;
-        height: auto;
     }
 
     /* Text */
