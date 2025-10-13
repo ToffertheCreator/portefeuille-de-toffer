@@ -429,7 +429,7 @@ html, body {
 }
 
 /* mobile view */
-@media (max-width: 650px) {
+@media (max-width: 768px) {
 
     /* Prevent horizontal overflow */
     html, body {
@@ -630,6 +630,10 @@ html, body {
         padding: 20px;
         min-height: auto;  /* Remove fixed height */
         margin-top: 250px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .contact h1 {
