@@ -10,11 +10,12 @@ html, body {
 
 .landing-bg {
     background-image: url("/static/dotted_ripple.gif");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center 0px;
     background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
+    height: 100%;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -22,6 +23,7 @@ html, body {
     z-index: 0;
 }
 
+/* Make ALL content appear above the overlay */
 .landing-bg > * {
     position: relative;
     z-index: 2;
@@ -69,6 +71,7 @@ html, body {
     z-index: 2;
 }
 
+/* contents */
 .landing-bg .content p {
     padding-top: 10px;
 }
@@ -562,7 +565,7 @@ html, body {
     }
 
     .landing-bg .profile h1 {
-        padding-top: 115px;
+        padding-top: 90px;
     }
 
     .profile h2 {
