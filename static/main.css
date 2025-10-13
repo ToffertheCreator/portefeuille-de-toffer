@@ -426,7 +426,7 @@ html, body {
 }
 
 /* mobile view */
-@media (max-width: 768px) {
+@media (max-width: 650px) {
 
     /* Prevent horizontal overflow */
     html, body {
@@ -528,8 +528,8 @@ html, body {
     /* Landing background */
     .landing-bg {
         background-size: cover;
-        background-position: center top;
-        min-height: 100%;
+        background-position: center center;
+        min-height: 100vh;
         height: auto;
     }
 
@@ -563,9 +563,13 @@ html, body {
 
     .profile h1 {
         padding-top: 20px;
-        font-size: 4rem;
-        line-height: 1.4;
-        margin-bottom: 30px;
+        font-size: 3rem;
+        text-align: left;
+        white-space: normal;  /* Allow text to wrap */
+        word-wrap: break-word;  /* Break long words */
+        overflow-wrap: break-word;  /* Modern alternative */
+        line-height: 1.5;  /* Space between wrapped lines */
+        max-width: 100%;  /* Don't exceed screen width */
     }
 
     .landing-bg .profile h1 {
@@ -577,13 +581,12 @@ html, body {
     }
 
     .profile blockquote {
-        font-size: 0.67rem;
+        font-size: 1rem;
         text-align: right;
         margin-left: auto;      /* Pushes the element to the right */
         margin-right: 0px;     /* Space from right edge */
         margin-top: 45px;
         max-width: 100%;
-        line-height: 1.4;
     }
 
     /* Work cards */
@@ -608,13 +611,13 @@ html, body {
     }
 
     .io-box input[type="text"], .io-box input[type="number"] {
-    width: 96%;
-    padding: 8px;
-    margin: 5px 0px 10px 0px;
-    border-radius: 4px;
-    border: none;
-    background: #222;
-    color: #fff;
+        width: 96%;
+        padding: 8px;
+        margin: 5px 0px 10px 0px;
+        border-radius: 4px;
+        border: none;
+        background: #222;
+        color: #fff;
 }
 
     /* Contact section */
