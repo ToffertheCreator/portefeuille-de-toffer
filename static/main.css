@@ -528,7 +528,13 @@ html, body {
     /* Landing background */
     .landing-bg {
         background-size: cover;
-        background-position: center center;
+        background-position: center top;
+        min-height: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main {
         min-height: 100vh;
         height: auto;
     }
