@@ -6,6 +6,7 @@ html, body {
     font-family: 'Times New Roman', Times, serif;
     padding-top: 40px;
     cursor: crosshair;
+    overflow-x: hidden;
 }
 
 .landing-bg {
@@ -15,8 +16,9 @@ html, body {
     background-position: center 0px;
     background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
+    height: 100%;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 0;
@@ -558,7 +560,8 @@ html, body {
         font-size: 1rem;
         margin-left: 20px;
         margin-right: 20px;
-        min-height: 100vh;  /* Ensure it covers full viewport */
+        min-height: auto;  /* Ensure it covers full viewport */
+        padding-bottom: 50px;
     }
 
     .profile h1 {
