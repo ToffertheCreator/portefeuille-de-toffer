@@ -10,12 +10,11 @@ html, body {
 
 .landing-bg {
     background-image: url("/static/dotted_ripple.gif");
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center 0px;
     background-color: rgba(255, 255, 255, 0.7);
     min-height: 100vh;
-    height: 100%;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -528,8 +527,11 @@ html, body {
 
     /* Landing background */
     .landing-bg {
+        min-height: 100vh;
+        height: auto;  /* Add this - allows it to grow with content */
         background-size: cover;
         background-position: center center;
+        background-attachment: scroll;
     }
 
     /* Text */
