@@ -527,11 +527,10 @@ html, body {
 
     /* Landing background */
     .landing-bg {
-        min-height: 100vh;
-        height: auto;  /* Add this - allows it to grow with content */
         background-size: cover;
         background-position: center center;
-        background-attachment: scroll;
+        min-height: 100vh;
+        height: auto;
     }
 
     /* Text */
@@ -556,14 +555,17 @@ html, body {
 
     /* Profile section */
     .profile {
-        font-size: 1.5rem;  /* Smaller font */
+        font-size: 1rem;
         margin-left: 20px;
         margin-right: 20px;
+        min-height: 100vh;  /* Ensure it covers full viewport */
     }
 
     .profile h1 {
         padding-top: 20px;
         font-size: 4rem;
+        line-height: 1.4;
+        margin-bottom: 30px;
     }
 
     .landing-bg .profile h1 {
@@ -581,6 +583,7 @@ html, body {
         margin-right: 0px;     /* Space from right edge */
         margin-top: 45px;
         max-width: 100%;
+        line-height: 1.4;
     }
 
     /* Work cards */
