@@ -81,9 +81,9 @@ html, body {
     margin-top: -130px;
 }
 
-.landing-bg .profile h1 {
+/* .landing-bg .profile h1 {
     padding-top: 40px;
-}
+} */
 
 .landing-bg .work {
     text-align: center;
@@ -112,7 +112,7 @@ html, body {
 }
 
 .top-image {
-    margin-top: 190px;  /* controls distance from top */
+    /* margin-top: 190px;  controls distance from top */
     margin-bottom: 0px; /* reduces space before h1 */
 }
 .bottom-image {
@@ -199,10 +199,19 @@ html, body {
     margin-top: 125px;
     text-align: center;
     white-space: normal;  /* Allow text to wrap */
-    word-wrap: break-word;  /* Break long words */
-    overflow-wrap: break-word;  /* Modern alternative */
-    line-height: 1.5;  /* Space between wrapped lines */
-    max-width: 100%;  /* Don't exceed screen width */
+    word-break: break-all;  /* Break long words */
+    line-height: 1.8;  /* Space between wrapped lines */
+    max-width: 95vw;  /* Don't exceed screen width */
+    letter-spacing: clamp(2px, 1vw, 24px); /* Scales with viewport */
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /*profile*/
@@ -210,6 +219,12 @@ html, body {
     color: #fff;
     font-size: 45px;
     margin-left: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .profile h2 {
@@ -513,12 +528,12 @@ html, body {
 
     /* Top image adjustments */
     .top-image {
-        margin-top: 250px;  /* Less space from top on mobile */
-        margin-bottom: 60px;
+        /* margin-top: 250px;  Less space from top on mobile */
+        margin-bottom: 10px;
     }
 
     .top-image img {
-        max-width: min(230px, 70vw);
+        max-width: min(240px, 70vw);
     }
 
     /* Bottom image adjustments */
@@ -568,7 +583,7 @@ html, body {
     }
 
     .profile h1 {
-        padding-top: 20px;
+        /* padding-top: 20px; */
         font-size: 3rem;
         text-align: left;
         white-space: normal;  /* Allow text to wrap */
