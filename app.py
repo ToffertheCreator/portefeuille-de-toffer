@@ -52,6 +52,14 @@ def areaoftriangle():
 
     return render_template('areaoftriangle.html', result=result)
 
+@app.route('/testwork', methods=['GET', 'POST'])
+def testwork():
+    result = None
+    if request.method == 'POST':
+        input_string = request.form.get('inputString', '')
+        result = input_string.upper()
+    return render_template('testwork.html', result=result)
+
 @app.route('/contact')
 def contact():
     return render_template('contacts.html')
