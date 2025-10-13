@@ -81,9 +81,9 @@ html, body {
     margin-top: -130px;
 }
 
-/* .landing-bg .profile h1 {
+.landing-bg .profile h1 {
     padding-top: 40px;
-} */
+}
 
 .landing-bg .work {
     text-align: center;
@@ -219,12 +219,6 @@ html, body {
     color: #fff;
     font-size: 45px;
     margin-left: 40px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .profile h2 {
@@ -578,12 +572,11 @@ html, body {
         font-size: 1rem;
         margin-left: 20px;
         margin-right: 20px;
-        min-height: auto;  /* Ensure it covers full viewport */
         padding-bottom: 50px;
     }
 
     .profile h1 {
-        /* padding-top: 20px; */
+        padding-top: 20px;
         font-size: 3rem;
         text-align: left;
         white-space: normal;  /* Allow text to wrap */
