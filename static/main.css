@@ -370,6 +370,7 @@ html, body {
     justify-content: center;  /* centers icons horizontally */
     gap: 20px;                /* spacing between icons */
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .social-item {
@@ -394,6 +395,7 @@ html, body {
     font-size: 60px;   /* set desired icon size */
     color: #fff;
     transition: color 0.3s;
+    font-size: clamp(30px, 5vw, 60px);
 }
 
 .social-links a i:hover {
@@ -630,12 +632,6 @@ html, body {
         padding: 20px;
         min-height: auto;  /* Remove fixed height */
         margin-top: 250px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* ensures it covers full screen */
-        height: auto; 
     }
 
     .contact h1 {
