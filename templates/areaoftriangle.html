@@ -1,28 +1,27 @@
 {% extends 'base.html' %}
+
 {% block head %}
 <title>Area of Triangle</title>
 {% endblock %}
 
 {% block body %}
-<div class="works landing">
-    <div class="content">
-        <h1>Get the Area of a Triangle</h1>
-
+<div class="works page-bg">
+    <div class="work-detail-section">
+        <h1>GET THE AREA OF A TRIANGLE</h1>
         <div class="io-box">
             <form action="/areaoftriangle" method="post">
                 <label for="inputbase">Enter base:</label>
-                <input type="number" id="inputbase" name="inputbase">
+                <input type="number" id="inputbase" name="inputbase" value="{{ request.form.inputbase }}">
                 <br><br>
                 <label for="inputheight">Enter height:</label>
-                <input type="number" id="inputheight" name="inputheight">
+                <input type="number" id="inputheight" name="inputheight" value="{{ request.form.inputheight }}">
                 <input type="submit" value="Calculate">
             </form>
-
+            {% if result %}
             <div class="results">
-                {% if result %}
                 <p>Area of triangle: {{ result }}</p>
-                {% endif %}
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

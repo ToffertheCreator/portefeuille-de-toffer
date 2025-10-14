@@ -1,4 +1,6 @@
-/*main*/
+/* ========================================
+   GLOBAL STYLES
+======================================== */
 html, body {
     margin: 0;
     padding: 0;
@@ -9,7 +11,10 @@ html, body {
     overflow-x: hidden;
 }
 
-.landing-bg {
+/* ========================================
+   PAGE BACKGROUND WITH OVERLAY
+======================================== */
+.page-bg {
     background-image: url("/static/dotted_ripple.gif");
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,37 +24,14 @@ html, body {
     height: 100%;
     width: 100vw;
     position: absolute;
+    height: auto;
     top: 0;
     left: 0;
     z-index: 0;
 }
 
-/* Make ALL content appear above the overlay */
-.landing-bg > * {
-    position: relative;
-    z-index: 2;
-}
-
-/* overlay bg */
-.landing-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);  /* Black overlay at 50% opacity */
-    z-index: 1;
-    pointer-events: none;
-}
-
-.landing-bg .content {
-    position: relative;
-    z-index: 2;  /* Content above overlay */
-}
-
-/* overlay work pages */
-.landing::before {
+/* Dark overlay on background */
+.page-bg::before {
     content: '';
     position: absolute;
     top: 0;
@@ -61,77 +43,15 @@ html, body {
     pointer-events: none;
 }
 
-/* Make sure content appears above the overlay */
-.landing .content {
+/* All content sits above overlay */
+.page-bg > * {
     position: relative;
     z-index: 2;
 }
 
-.landing .io-box {
-    position: relative;
-    z-index: 2;
-}
-
-/* contents */
-.landing-bg .content p {
-    padding-top: 10px;
-}
-.landing-bg .content h1 {
-    padding-top: 0px;
-    margin-top: -130px;
-}
-
-.landing-bg .profile h1 {
-    padding-top: 40px;
-}
-
-.landing-bg .work {
-    text-align: center;
-    padding-top: 100px;
-}
-
-.main, .content {
-    color: #ffffff;
-}
-
-.top-image, .bottom-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.bottom-image img {
-    max-width: min(200px, 50vw);
-    height: auto;
-}
-
-.top-image img {
-    max-width: min(340px, 70vw);  /* Never exceeds 340px OR 70% of viewport */
-    height: auto;
-}
-
-.top-image {
-    /* margin-top: 190px;  controls distance from top */
-    margin-bottom: 0px; /* reduces space before h1 */
-}
-.bottom-image {
-    margin-top: 0px;
-    opacity: 0.85;
-}
-
-.logo img {
-    height: 65px;
-    width: auto;
-    display: block;
-}
-
-.content h1, .content p {
-    text-align: center;
-    letter-spacing: 2px;
-}
-
-/* navbar */
+/* ========================================
+   NAVBAR
+======================================== */
 .navbar {
     background: transparent;
     height: 80px;
@@ -149,21 +69,18 @@ html, body {
     backdrop-filter: blur(4px);
 }
 
+.logo img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
     gap: 30px;
     margin: 0;
     padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #aaa;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: color 0.2s ease;
 }
 
 .nav-links li {
@@ -176,14 +93,20 @@ html, body {
 .nav-links li:not(:last-child) {
     border-right: 2px solid #fff;
     padding-right: 30px;
-    height: 80px;
-    display: flex;
-    align-items: center;
 }
 
 .nav-links li:first-child {
     border-left: 2px solid #fff;
     padding-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #aaa;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover,
@@ -192,45 +115,124 @@ html, body {
     color: #fff;
 }
 
-/*index*/
-.spaced {
-    letter-spacing: 24px;
-    display: block;
-    margin-top: 125px;
-    text-align: center;
-    white-space: normal;  /* Allow text to wrap */
-    word-break: break-all;  /* Break long words */
-    line-height: 1.8;  /* Space between wrapped lines */
-    max-width: 95vw;  /* Don't exceed screen width */
-    letter-spacing: clamp(2px, 1vw, 24px); /* Scales with viewport */
-    font-size: clamp(1rem, 3vw, 2rem);
+.burger {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
 }
 
-.intro {
+/* ========================================
+   HOME PAGE - INTRO SECTION
+======================================== */
+.intro-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
-
-/*profile*/
-.profile {
     color: #fff;
-    font-size: 45px;
+}
+
+.intro-logo-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.intro-logo-top img {
+    max-width: min(320px, 70vw);
+    height: auto;
+}
+
+.intro-tagline {
+    letter-spacing: 24px;
+    display: block;
+    margin-top: 0px;
+    text-align: center;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 1;
+    max-width: 95vw;
+    letter-spacing: clamp(2px, 1vw, 24px);
+    font-size: clamp(2.3rem, 7.5vw, 2.8rem);
+}
+
+.intro-logo-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    opacity: 0.85;
+}
+
+.intro-logo-bottom img {
+    max-width: min(200px, 60vw);
+    height: auto;
+}
+
+/* ========================================
+   PROFILE PAGE
+======================================== */
+.profile-section {
+    color: #fff;
+    line-height: 1;
+    font-size: clamp(3rem, 4rem, 3.8rem);
+    white-space: normal;
+    word-break: break-all;
     margin-left: 40px;
+    padding-top: 40px;
+    min-height: unset;
+    height: auto;
 }
 
-.profile h2 {
+.profile-section h1 {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 45px;
+}
+
+.profile-section h2 {
     font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.profile blockquote {
+.profile-quote {
     font-size: 20px;
     text-align: right;
 }
 
-/*portfolio*/
+/* ========================================
+   PORTFOLIO PAGE
+======================================== */
+.portfolio-section {
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+
+.portfolio-section h1 {
+    font-size: 2rem;
+}
+
+.portfolio-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px;
+}
+
 .work-card {
     background: #151515;
     color: #fff;
@@ -240,7 +242,7 @@ html, body {
     border-radius: 8px;
     display: inline-block;
     width: 180px;
-    height: 160px;         
+    height: 160px;
     vertical-align: top;
     text-align: center;
     transition: transform 0.2s;
@@ -248,12 +250,12 @@ html, body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #1c1c1c #111;
-    /* border: 2px solid #fff; */
-    transform-origin: center center;  /* Add this */
+    transform-origin: center center;
     position: relative;
 }
 
-.work-card h3, .work-card p {
+.work-card h3,
+.work-card p {
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
@@ -268,43 +270,60 @@ html, body {
     transition: opacity 0.3s;
     display: inline-block;
     margin-top: 10px;
+    color: #fff;
+    font-weight: 600;
 }
 
 .work-card:hover .try-link {
     opacity: 1;
 }
 
-.work-card a {
-    color: #fff;
-    font-weight: 600;
-}
-
 .work-card a:hover {
     color: #ccc;
 }
 
-/*works*/
-.work h1 {
-    font-size: 2rem;
+/* ========================================
+   WORK DETAIL PAGES (with io-box)
+======================================== */
+.work-detail-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 80px;  /* adjust for navbar height */
+    box-sizing: border-box;
     color: #fff;
+}
+
+.works.page-bg {
+    background-size: 2990px 2990px;
+    background-position: center;
+}
+
+.work-detail-section h1 {
+    margin-bottom: 30px;
 }
 
 .io-box {
     border: 2px solid #fff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 25px;
     background: rgba(17, 17, 17, 0.7);
-    margin: 60px;
-    margin-left: 90px;
-    margin-right: 90px;
+    margin: 0px auto;
+    width: 90%;
+    box-sizing: border-box;
 }
 
-.io-box input[type="text"], .io-box input[type="number"] {
+.io-box input[type="text"],
+.io-box input[type="number"] {
     width: 100%;
     padding: 8px;
-    margin: 5px 0px 10px 0px;
+    margin: 5px 0 10px 0;
     border-radius: 4px;
     border: none;
+    box-sizing: border-box;
     background: #222;
     color: #fff;
 }
@@ -318,73 +337,42 @@ html, body {
     cursor: pointer;
 }
 
-.landing {
-    background-color: #000000;
-    min-height: 100vh;
-    background-image: url("/static/dotted_ripple.gif");
-    background-repeat: no-repeat;
-    background-size: 2990px 2990px;
-    background-position: center 0px;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.landing .content {
-    padding-top: 120px;
-}
-
-#zoom-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: #000000;
-    z-index: 99999;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(0.1);
-    transition: opacity 0.5s, transform 0.7s cubic-bezier(.4,2,.3,.9);
-}
-
-.main {
-    transition: transform 0.5s, filter 0.5s;
-}
-
-.zoom-transition {
-    transform: scale(1.1);
-    filter: blur(8px);
-    pointer-events: none;  /* Add this */
-}
-
-/*contacts*/
-.contact {
+/* ========================================
+   CONTACT PAGE
+======================================== */
+.contact-section {
     text-align: center;
-    font-size: 20px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    padding-top: 80px; /* equal to navbar height */
+    box-sizing: border-box;
     margin: 0;
+    color: #fff;
 }
 
-.contact p {
-    margin-top: 0px;
+.contact-section h1 {
+    font-size: 40px;
+}
+
+.contact-section p {
+    margin: 0;
+    font-size: 25px;
 }
 
 .social-links {
     display: flex;
-    justify-content: center;  /* centers icons horizontally */
-    gap: 20px;                /* spacing between icons */
+    justify-content: center;
+    gap: 10px;
     margin-top: 40px;
     flex-wrap: wrap;
 }
 
 .social-item {
     display: flex;
-    flex-direction: column;   /* stack icon and text */
+    flex-direction: column;
     align-items: center;
     text-align: center;
 }
@@ -393,7 +381,7 @@ html, body {
     color: #fff;
     margin: 0 10px;
     transition: color 0.3s;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 .social-links a:hover {
@@ -401,7 +389,7 @@ html, body {
 }
 
 .social-links a i {
-    font-size: 60px;   /* set desired icon size */
+    font-size: 60px;
     color: #fff;
     transition: color 0.3s;
     font-size: clamp(30px, 5vw, 60px);
@@ -415,14 +403,37 @@ html, body {
     font-size: 12px;
 }
 
-/* ripple */
+/* ========================================
+   SCREEN EFFECTS
+======================================== */
+#zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.1);
+    transition: opacity 2s, transform 3s cubic-bezier(.4, 2, .3, .9);
+}
+
+.zoom-transition {
+    transform: scale(1.1);
+    transition: transform 3s, filter 2s;
+    filter: blur(8px);
+    pointer-events: none;
+}
+
 .screen-ripple {
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
     transform: scale(0);
     animation: screen-ripple-distort 0.7s linear;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     filter: url(#wavy-ripple);
     z-index: 9999;
@@ -435,65 +446,43 @@ html, body {
     }
 }
 
-.burger {
-    display: none;
-}
-
-/* mobile view */
+/* ========================================
+   MOBILE STYLES
+======================================== */
 @media (max-width: 768px) {
-
-    /* Prevent horizontal overflow */
     html, body {
         overflow-x: hidden;
         max-width: 100vw;
     }
 
+    /* Navbar Mobile */
     .burger {
         display: block;
-        font-size: 28px;
-        color: #fff;
-        cursor: pointer;
-        z-index: 10000;
     }
 
-    /* Navbar */
     .navbar {
         flex-direction: row;
         padding: 10px 40px;
         height: auto;
     }
 
+    .logo img {
+        height: 8.5vh;
+        width: auto;
+    }
+
     .nav-links {
         flex-direction: column;
         position: fixed;
-        top: 69.5px;  /* Below the navbar */
+        top: 69.5px;
         right: -50%;
         width: 25%;
-        height: calc(100vh - 80px);  /* Full height minus navbar */
-        background: rgba(0, 0, 0, 0.7);  /* Semi-transparent */
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.7);
         padding: 20px;
         text-align: center;
-        transition: right 0.3s ease-in-out;  /* Smooth slide transition */
-        z-index: 999;  /* Below navbar but above content */
-    }
-
-    .nav-links li:not(:last-child) {
-        border-right: none;
-        padding-right: 0;
-        height: auto;
-    }
-    
-    .nav-links li:first-child {
-        border-left: none;
-        padding-left: 0;
-    }
-    
-    .nav-links li {
-        height: auto;
-    }
-
-    .burger {
-        display: block;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
     }
 
     .nav-links.show {
@@ -502,11 +491,17 @@ html, body {
 
     .nav-links li {
         margin: 20px 0;
+        height: auto;
     }
 
-    .logo img {
-        height: 8.5vh;
-        width: auto;
+    .nav-links li:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .nav-links li:first-child {
+        border-left: none;
+        padding-left: 0;
     }
 
     .nav-links a {
@@ -514,97 +509,62 @@ html, body {
         color: #fff;
     }
 
-    /* Images */
-    .top-image img,
-    .bottom-image img {
-        max-width: 80%;
+    /* Home Page Mobile */
+    .intro-logo-top img {
+        max-width: min(220px, 70vw);
     }
 
-    /* Top image adjustments */
-    .top-image {
-        /* margin-top: 250px;  Less space from top on mobile */
-        margin-bottom: 10px;
+    .intro-logo-bottom img {
+        max-width: min(135px, 50vw);
     }
 
-    .top-image img {
-        max-width: min(240px, 70vw);
-    }
-
-    /* Bottom image adjustments */
-    .bottom-image {
-        margin-top: 0px;
-    }
-
-    .bottom-image img {
-        max-width: min(150px, 50vw);
-    }
-
-    /* Landing background */
-    .landing-bg {
-        background-size: cover;
-        background-position: center center;
-        min-height: 100vh;
-        height: auto;
-    }
-
-    /* Text */
-    .content h1 {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
-        margin-top: 0px;
-    }
-
-    .spaced {
+    .intro-tagline {
         letter-spacing: 8px;
-        margin-top: 120px;
-        font-size: 1.6rem;
+        margin-top: 0px;
+        font-size: 2rem;
         padding: 0 10px;
-        white-space: normal;  /* Allow text to wrap */
-        word-wrap: break-word;  /* Break long words */
-        overflow-wrap: break-word;  /* Modern alternative */
-        line-height: 1.5;  /* Space between wrapped lines */
-        max-width: 100%;  /* Don't exceed screen width */
-        display: block;  /* Instead of inline-block */
+        line-height: 1.5;
     }
 
-    /* Profile section */
-    .profile {
-        font-size: 1rem;
+    /* Profile Page Mobile */
+    .profile-section {
         margin-left: 20px;
         margin-right: 20px;
-        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 0px;
+        padding-bottom: 0;
     }
 
-    .profile h1 {
-        padding-top: 20px;
-        font-size: 3rem;
+    .profile-section h1 {
+        line-height: 1;
+        font-size: clamp(3rem, 5px, 6rem);
         text-align: left;
-        white-space: normal;  /* Allow text to wrap */
-        word-wrap: break-word;  /* Break long words */
-        overflow-wrap: break-word;  /* Modern alternative */
-        line-height: 1.5;  /* Space between wrapped lines */
-        max-width: 100%;  /* Don't exceed screen width */
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1;
+        max-width: 100%;
+        margin-top: 50px;
     }
 
-    .landing-bg .profile h1 {
-        padding-top: 90px;
-    }
-
-    .profile h2 {
+    .profile-section h2 {
         font-size: 1.5rem;
     }
 
-    .profile blockquote {
+    .profile-quote {
         font-size: 1rem;
         text-align: right;
-        margin-left: auto;      /* Pushes the element to the right */
-        margin-right: 0px;     /* Space from right edge */
+        margin-left: auto;
+        margin-right: 0;
         margin-top: 45px;
         max-width: 100%;
     }
 
-    /* Work cards */
-    .work h1 {
+    /* Portfolio Page Mobile */
+    .portfolio-section h1 {
         font-size: 2rem;
     }
 
@@ -612,44 +572,39 @@ html, body {
         width: 80%;
         max-width: 100%;
         margin: 10px auto;
-        margin-left: auto;  /* Override the 40px margin-left */
-        margin-right: auto;
         box-sizing: border-box;
     }
 
-    /* Input boxes */
+    /* Work Detail Pages Mobile */
     .io-box {
-        margin: 20px;
-        padding: 15px;
-        margin-top: 60px;
+        width: 90%;
+        max-width: 500px;
     }
 
-    .io-box input[type="text"], .io-box input[type="number"] {
+    .io-box input[type="text"],
+    .io-box input[type="number"] {
         width: 96%;
-        padding: 8px;
-        margin: 5px 0px 10px 0px;
-        border-radius: 4px;
-        border: none;
-        background: #222;
-        color: #fff;
-}
+    }
 
-    /* Contact section */
-    .contact {
+    /* Contact Page Mobile */
+    .contact-section {
         font-size: 0.8rem;
         padding: 20px;
-        min-height: auto;  /* Remove fixed height */
-        margin-top: 250px;
     }
 
-    .contact h1 {
-        font-size: 3rem;
+    .contact-section h1 {
+        font-size: 2.3rem;
         margin-bottom: 10px;
+    }
+
+    .contact-section p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
     }
 
     .social-links {
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 10px;
     }
 
     .social-links a i {

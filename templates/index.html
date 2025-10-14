@@ -5,16 +5,14 @@
 {% endblock %}
 
 {% block body %}
-<div class="main landing-bg">
-    <div class="content">
-        <div class="intro">
-            <div class="top-image">
-                <img src="{{ url_for('static', filename='stencil.png') }}" alt="stencil logo">
-            </div>
-            <h1><span class="spaced">CODE.ALGORITHMS.SUBMISSIONS</span></h1>
-            <div class="bottom-image">
-                <img src="{{ url_for('static', filename='ambigram.png') }}" alt="ambigram brand">
-            </div>
+<div class="page-bg">
+    <div class="intro-section">
+        <div class="intro-logo-top">
+            <img src="{{ url_for('static', filename='stencil.png') }}" alt="stencil logo">
+        </div>
+        <h1 class="intro-tagline">CODE.ALGORITHMS.SUBMISSIONS</h1>
+        <div class="intro-logo-bottom">
+            <img src="{{ url_for('static', filename='ambigram.png') }}" alt="ambigram brand">
         </div>
     </div>
 </div>

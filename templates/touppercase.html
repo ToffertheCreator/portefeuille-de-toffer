@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
+
 {% block head %}
 <title>Convert to Uppercase</title>
 {% endblock %}
 
 {% block body %}
-<div class="works landing">
-    <div class="content">
+<div class="works page-bg">
+    <div class="work-detail-section">
         <h1>CONVERT STRING TO UPPERCASE</h1>
-
         <div class="io-box">
             <form action="/uppercase" method="post">
                 <label for="inputString">Enter a string:</label>
-                <input type="text" id="inputString" name="inputString">
+                <input type="text" id="inputString" name="inputString" value="{{ request.form.inputString }}">
                 <input type="submit" value="Convert">
             </form>
-
+            {% if result %}
             <div class="results">
-                {% if result %}
                 <p>Converted string: {{ result }}</p>
-                {% endif %}
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
