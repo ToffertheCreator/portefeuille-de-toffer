@@ -660,6 +660,11 @@ html, body {
         padding: 6px;
     }
 
+    .list-display p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
     /* Contact Page Mobile */
     .contact-section {
         font-size: 0.8rem;
