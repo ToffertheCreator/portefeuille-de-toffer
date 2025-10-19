@@ -66,6 +66,12 @@
         } else {
             indexField.style.display = 'none';
         }
+
+        if (operation === 'remove_beginning' || operation === 'remove_end') {
+            dataField.style.display = 'none'
+        } else {
+            dataField.style.display = 'block'
+        }
     }
     document.addEventListener('DOMContentLoaded', toggleIndexInput);
 </script>
