@@ -183,6 +183,9 @@ html, body {
     font-size: clamp(3rem, 4rem, 3.8rem);
     white-space: normal;
     word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-left: 40px;
     padding-top: 40px;
     min-height: unset;
