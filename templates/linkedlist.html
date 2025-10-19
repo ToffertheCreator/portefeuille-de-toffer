@@ -40,7 +40,7 @@
                 <p id="listDisplay">
                     {% if list_items %}
                         {% for item in list_items %}
-                            {{ item }}{% if not loop.last %} -> {% endif %}
+                            {{ item }}{% if not loop.last %} → {% endif %}
                         {% endfor %}
                     {% else %}
                         Empty

@@ -641,11 +641,23 @@ html, body {
     .io-box {
         width: 90%;
         max-width: 500px;
+        box-sizing: border-box;
     }
 
     .io-box input[type="text"],
     .io-box input[type="number"] {
+        word-break: break-word;
+        overflow-wrap: break-word;
         width: 96%;
+    }
+
+    .operation-field {
+        max-width: 90px;
+    }
+
+    .operation-field select {
+        font-size: 12px;
+        padding: 6px;
     }
 
     /* Contact Page Mobile */
