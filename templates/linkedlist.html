@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Singly Linked List</title>
+{% endblock %}
+
+{% block body %}
+<div class="works page-bg">
+    <div class="work-detail-section">
+        <h1>SINGLY LINKED LIST</h1>
+        <div class="io-box">
+            <form action="/linkedlist" method="post">
+                <div class="linkedlist-container">
+                    <div id="data-field">
+                        <label for="inputdata">Enter Data</label>
+                        <input type="text" id="inputdata" name="inputdata" value="{{ request.form.inputdata }}">
+                    </div>
+                    <div class="operation-field">
+                        <label for="operation">Operation</label>
+                        <select id="operation" name="operation" onchange="toggleIndexInput()">
+                            <option value="insert_beginning" {% if request.form.get('operation') == 'insert_beginning' %}selected{% endif %}>Insert at Beginning</option>
+                            <option value="insert_end" {% if request.form.get('operation') == 'insert_end' %}selected{% endif %}>Insert at End</option>
+                            <option value="insert_at" {% if request.form.get('operation') == 'insert_at' %}selected{% endif %}>Insert at</option>
+                            <option value="search" {% if request.form.get('operation') == 'search' %}selected{% endif %}>Search</option>
+                            <option value="remove_beginning" {% if request.form.get('operation') == 'remove_beginning' %}selected{% endif %}>Remove at Beginning</option>
+                            <option value="remove_end" {% if request.form.get('operation') == 'remove_end' %}selected{% endif %}>Remove at End</option>
+                            <option value="remove_at" {% if request.form.get('operation') == 'remove_at' %}selected{% endif %}>Remove at</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="index-field">
+                    <label for="index">Index</label>
+                    <input type="number" id="index" name="index" value="{{ request.form.index }}">
+                </div>
+                <input type="submit" value="Execute" style="margin-top: 10px;">
+            </form>
+
+            <div class="list-display">
+                <h3>List:</h3>
+                <p id="listDisplay">
+                    {% if list_items %}
+                        {% for item in list_items %}
+                            {{ item }}{% if not loop.last %} -> {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        Empty
+                    {% endif %}
+                </p>
+                {% if message %}
+                    <p class="message">{{ message }}</p>
+                {% endif %}
+                {% if removed_message %}
+                    <p class="removed_message">{{ removed_message }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleIndexInput() {
+        const operation = document.getElementById('operation').value;
+        const indexField = document.getElementById('index-field');
+        const dataField = document.getElementById('data-field');
+        if (operation === 'insert_at') {
+            indexField.style.display = 'block';
+        } else {
+            indexField.style.display = 'none';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', toggleIndexInput);
+</script>
+{% endblock %}
