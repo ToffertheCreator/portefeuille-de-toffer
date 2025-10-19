@@ -340,7 +340,7 @@ html, body {
 /* ========================================
    LINKED LIST FORM STYLES
 ======================================== */
-.linkedlist-container {
+.container {
     display: flex;
     gap: 10px;
     text-align: left;

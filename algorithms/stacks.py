@@ -85,6 +85,6 @@ if __name__ == "__main__":
     expr = "AB+C*"
     print(postfix_to_infix(expr))
     expr = "a*(b+c)/d"
-    postfix = infix_to_postfix(expr)
+    postfix = postfix_to_infix(expr)
     print(f"Infix: {expr}")
     print(f"Postfix: {postfix}")

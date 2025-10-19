@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Expression Converter</title>
+{% endblock %}
+
+{% block body %}
+<div class="works page-bg">
+    <div class="work-detail-section">
+        <h1>EXPRESSION CONVERTER USING STACKS</h1>
+        <div class="io-box">
+            <form action="/stack" method="post">
+                <div class="container">
+                    <div id="data-field">
+                        <label for="inputexpression">Enter Expression</label>
+                        <input type="text" id="inputexpression" name="inputexpression" value="{{ request.form.inputexpression }}">
+                    </div>
+                    <div class="operation-field">
+                        <label for="operation">Operation</label>
+                        <select id="operation" name="operation">
+                            <option value="infix-postfix" {% if request.form.get('operation') == 'infix-postfix' %}selected{% endif %}>Infix to Postfix</option>
+                            <option value="postfix-infix" {% if request.form.get('operation') == 'postfix-infix' %}selected{% endif %}>Postfix to Infix</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" value="Execute" style="margin-top: 10px;">
+            </form>
+            <div class="results">
+                {% if result_inf_post %}
+                    <p>Infix to Postfix: {{ result_inf_post }}</p>
+                {% endif %}
+                {% if result_post_inf %}
+                    <p>Postfix to Infix: {{ result_post_inf }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

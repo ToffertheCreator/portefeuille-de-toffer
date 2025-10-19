@@ -58,7 +58,7 @@ def areaoftriangle():
 def linkedlist():
     message = ""
     removed_message = ""
-    
+
     if request.method == 'GET':
         session['my_list_data'] = []
         session['message'] = ""
@@ -105,6 +105,22 @@ def linkedlist():
   
     list_items = my_list.display()
     return render_template('linkedlist.html', list_items=list_items, message=message, removed_message=removed_message)
+
+@app.route('/stack', methods=['GET', 'POST'])
+def stack():
+    result_inf_post = ''
+    result_post_inf = ''
+
+    if request.method == "POST":
+        expression = request.form.get('inputexpression', '').strip()
+        operation = request.form.get('operation')
+
+        if operation == 'infix-postfix':
+            result_inf_post = stacks.infix_to_postfix(expression)
+        else:
+            result_post_inf = stacks.postfix_to_infix(expression)
+
+    return render_template('stack.html', result_inf_post=result_inf_post, result_post_inf=result_post_inf)
 
 @app.route('/contact')
 def contact():
